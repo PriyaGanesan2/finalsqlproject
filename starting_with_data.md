@@ -18,10 +18,10 @@ Question 2:
 SQL Queries:
 ```
 WITH sku_CTE AS (SELECT PRODUCTSKU, V2PRODUCTCATEGORY, ROW_NUMBER() OVER
-(PARTITION BY PRODUCTSKU ORDER BY PRODUCTSKU)
- rownum FROM temp_cat_prod)
+	(PARTITION BY PRODUCTSKU ORDER BY PRODUCTSKU)
+	 rownum FROM temp_cat_prod)
 select * FROM sku_CTE  WHERE rownum>1
-select * from all_sessions_q1
+
 ```
 Answer:
 <img width="785" alt="Screenshot 2023-10-31 at 2 30 52 AM" src="https://github.com/PriyaGanesan2/finalsqlproject/assets/110922792/82357384-403b-43d1-8b96-9b5345ab8d33">

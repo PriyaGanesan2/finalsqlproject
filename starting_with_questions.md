@@ -103,24 +103,75 @@ Answer:
 
 
 SQL Queries:
-
-
+```
+-- First, fetch country,productname,categoryname for products that have been sold
+with tmp_cte as (
+	select s.fullvisitorid,s.productsku,
+	v.city,v.country,
+	cat.name as prodname ,cat.v2productcategory
+	from all_sessions_back s
+	left join visitor_q1 v
+	on s.fullvisitorid=v.fullvisitorid
+	left join temp_prod_cat_det cat
+	on cat.productsku=s.productsku
+	where s.productrevenue>0
+	order by v.country)
+-- Get the occurance of productcategories for each county and arrange them in descending order with the product category ordered most for a county on top
+SELECT country,prodname, v2productcategory, ROW_NUMBER() OVER
+(PARTITION BY  country,v2productcategory ORDER BY country,v2productcategory)
+ rownum FROM tmp_cte
+ where v2productcategory notnull 
+ order by rownum desc,country
+```
 
 Answer:
+- Products sold under NEST categories are the most and most products sold in US belong to this category and related to home safety 
+- and security and home energy saving improvements
+- No other countries have have made sale on NEST category products other than US
+- ALL sales for Argentina have been for backpacks
+- All sales in france HAVE BEEN FOR category lAPTOP & CELL PHONE STICKERS
 
 
 
+<img width="875" alt="Screenshot 2023-10-30 at 11 06 13 PM" src="https://github.com/PriyaGanesan2/finalsqlproject/assets/110922792/a65d1ad6-0295-424a-960f-315a1db8491c">
 
 
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
 
 
 SQL Queries:
+```
+with outer_cte as(
+	with inner_cte as (
+		--Firs fetch product details, country and productquantity sold for each product
+		select s.fullvisitorid,s.productsku,s.productquantity,s.v2productname,
+		v.country,sum(s.productquantity) over
+		(partition by v.country,s.productsku) as totalproductsold
+		from all_sessions_back s
+		left join visitor_q1 v
+		on s.fullvisitorid=v.fullvisitorid
+		left join temp_prod_cat_det cat
+		on 	s.productsku=cat.productsku
+		where productquantity >0 
+		ORDER BY v.country,s.productsku
+	)
+	-- Rank the each product by the productsquantity sold , partiton by country
+	select  productsku,v2productname,country,totalproductsold,
+	dense_rank() over(partition by country order by totalproductsold desc) as toprank
+	from inner_cte 
+)
+-- Finally fecth only the top sold products for each county
+select distinct productsku,v2productname,country,totalproductsold from outer_cte where 
+toprank=1
+order by totalproductsold desc
+```
+
 
 
 
 Answer:
-
+- Top selling products in each country are listed below. Not able to find any pattern here. 
+<img width="705" alt="Screenshot 2023-10-30 at 11 16 20 PM" src="https://github.com/PriyaGanesan2/finalsqlproject/assets/110922792/5c6d5d37-78ae-4385-866b-cf435af66efc">
 
 
 

@@ -10,12 +10,114 @@
 ## Process
 ### (your step 1)
 Part 1: Loading csv Files into Database
+--PART 1
 
-Part 2: Data Cleaning
-### (your step 2)
+-- 1. CLONE GIT REPO TO LOCAL MACHINE.
+--     CODE --> GET HTTS LINK AND COPY THE LINK
+-- 	GO TO THE FOLDER IN LOCAL MACHINE WHERE YOU WANT TO CLONE THIS FOLDER 
+-- 	git clone <HTTPS LINK FROM PROVIOUS STEP>
+-- 	https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+-- 2. DOWNLOAD THE CSV FILES AND CRAETE DB ECOMMERCE
+--     1. COPY THE HEADER COLOUM OF THE CSV
+-- 	2. CONVERT TO TEXT
+-- 	3. CREATE TEH SQL QUERY TO CRAETE TABLE
+-- 	4. KEEP ALL FIELDS AS VARCHAR
+-- 	5. CREATE TABLE
+-- 	6.REFRESH
+-- 	7. RUN TRUNCATE TABLE QUERY
+-- 	8. IMPORT/EXPORT CSV
+-- 	9. QUERIES FOR THIS DB AS BELOW.
+--  10, https://www.postgresqltutorial.com/postgresql-tutorial/import-csv-file-into-posgresql-table/
+
+PART 2 
+```
+select count(*) from all_sessions
+```
+```
+Create table analytics(
+ visitNumber	varchar,
+visitId varchar,	
+visitStartTime varchar,	
+date1 varchar,
+fullvisitorId varchar,	
+userid varchar,	
+channelGrouping	varchar,
+socialEngagementType varchar,	
+units_sold varchar,	
+pageviews varchar,	
+timeonsite varchar,
+bounces	varchar,
+revenue	varchar,
+unit_price varchar)
+```
+
+```
+TRUNCATE TABLE analytics 
+ RESTART IDENTITY;
+```
+```
+select * from analytics
+```
+```
+select * from all_sessions
+```
+
+```
+Create table products(
+SKU	 varchar,
+name varchar,	
+orderedQuantity varchar,	
+stockLevel varchar,	
+restockingLeadTime varchar,		
+sentimentScore varchar,	
+sentimentMagnitude varchar)
+```
+
+```
+TRUNCATE TABLE products
+RESTART IDENTITY;
+```
+
+```
+select * from products
+```
+```
+Create table sales_by_sku(
+productSKU	varchar,
+otal_ordered varchar)
+```
+```
+TRUNCATE TABLE sales_by_sku
+ RESTART IDENTITY;
+```
+ 
+```
+select * from sales_by_sku
+```
+```
+Create table sales_report(
+productSKU	varchar,
+total_ordered	 varchar,
+name1 varchar,
+stockLevel varchar,
+restockingLeadTime varchar,	
+ sentimentScore varchar,	
+sentimentMagnitude	varchar,
+ratio varchar)
+```
+```
+TRUNCATE TABLE sales_report
+RESTART IDENTITY;
+```
+ 
+```
+select * from sales_report
+```
+
 
 ## Results
-(fill in what you discovered this data could tell you and how you used the data to answer those questions)
+- The data in the ecommerce database helped me understand a part of the flow of this ecommerce website.
+- This analysis further helped me in answering the questions required to cpltete this project
 
 ## Challenges 
 (discuss challenges you faced in the project)

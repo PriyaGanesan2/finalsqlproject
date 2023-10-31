@@ -3,7 +3,7 @@ What are your risk areas? Identify and describe them.
 
 
 QA Process:
--Example 1 - to check for duplicates and removing them before creating a table and then doing further QA to remove all duplicates.
+-   Example 1 - to check for duplicates and removing them before creating a table and then doing further QA to remove all duplicates.
 Describe your QA process and include the SQL queries used to execute it.
 - Created a table visitor_q1 to maintain fullvisitorid , city and county details
 -  STPE 1: SELECT * INTO TEMP FROM all_sessions_back

@@ -179,10 +179,41 @@ Answer:
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 
 SQL Queries:
+```
+with final_cte as(
+	with outer_cte as(
+		with tran_cte as (
+			select  
+			v.country,
+			sum(aq.prodrevenue) 
+			over(partition by v.fullvisitorid) as rev
+			from visitor_q1 v
+			inner join analytics_q2 aq on 
+			v.fullvisitorid=aq.fullvisitorid
+			order by rev DESC)
 
-
+		-- Fetch Countries and calculate countyrevenue
+		select distinct country,rev,sum(rev) over
+		(partition by country ) as countryrevenue
+		from tran_cte
+		order by countryrevenue desc
+	)
+	-- Calculate sum of total revenue  
+	select  country,countryrevenue,sum(countryrevenue) over
+	() as totalrevenue from outer_cte
+)
+--finally display county, country revenue, totalrevenue and revenue contribuation(as percenatge) by each country
+select distinct country,countryrevenue, (countryrevenue/totalrevenue)* 100 as percentage
+from final_cte
+where countryrevenue!=0
+order by countryrevenue desc 
+```
 
 Answer:
+- Total revenue is 158639248558.48
+- Top 5 countries 
+- United states has revenue of USD 574751092.91, followed by Hong Kong USD 404676.27, Canada 259084.56, Czechia 181803.90 , Germany 45521.73
+<img width="571" alt="Screenshot 2023-10-30 at 11 30 21 PM" src="https://github.com/PriyaGanesan2/finalsqlproject/assets/110922792/36a13b4f-6fc7-437f-8378-330c4aeb6608">
 
 
 

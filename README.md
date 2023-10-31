@@ -1,10 +1,17 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
-(fill in your description and goals here)
+- Load the csv fileL
+- look into the tables and undestand a bit more abou the data and how they are related
+- clean the data
+- start answering the questions
+- fill in the *.md files
 
 ## Process
 ### (your step 1)
+Part 1: Loading csv Files into Database
+
+Part 2: Data Cleaning
 ### (your step 2)
 
 ## Results

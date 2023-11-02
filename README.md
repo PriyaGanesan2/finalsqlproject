@@ -1,16 +1,11 @@
 # Final-Project-Transforming-and-Analyzing-Data-with-SQL
 
 ## Project/Goals
-- Load the csv fileL
-- look into the tables and undestand a bit more abou the data and how they are related
-- clean the data
-- start answering the questions
-- fill in the *.md files
+- My goal here in this project has been to apply the  skill acquired in the past few weeks and to solve the questions asked here to my best.
+  Database was created my importing the CSV files,  understand the data that’s given, understand what is required to be solved and then clean and transform the data accordingly
 
 ## Process
-### (your step 1)
-Part 1: Loading csv Files into Database
---PART 1
+### Part 1: Create database and load the table
 
 -- 1. CLONE GIT REPO TO LOCAL MACHINE.
 --     CODE --> GET HTTS LINK AND COPY THE LINK
@@ -19,17 +14,17 @@ Part 1: Loading csv Files into Database
 -- 	https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 -- 2. DOWNLOAD THE CSV FILES AND CRAETE DB ECOMMERCE
 --     1. COPY THE HEADER COLOUM OF THE CSV
--- 	2. CONVERT TO TEXT
--- 	3. CREATE TEH SQL QUERY TO CRAETE TABLE
--- 	4. KEEP ALL FIELDS AS VARCHAR
--- 	5. CREATE TABLE
--- 	6.REFRESH
--- 	7. RUN TRUNCATE TABLE QUERY
--- 	8. IMPORT/EXPORT CSV
--- 	9. QUERIES FOR THIS DB AS BELOW.
---  10, https://www.postgresqltutorial.com/postgresql-tutorial/import-csv-file-into-posgresql-table/
+-- 	   2. CONVERT TO TEXT
+-- 	   3. CREATE TEH SQL QUERY TO CRAETE TABLE
+-- 	   4. KEEP ALL FIELDS AS VARCHAR
+-- 	   5. CREATE TABLE
+-- 	  6.REFRESH
+-- 	  7. RUN TRUNCATE TABLE QUERY
+-- 	  8. IMPORT/EXPORT CSV
+-- 	  9. QUERIES FOR THIS DB AS BELOW.
+--    10, https://www.postgresqltutorial.com/postgresql-tutorial/import-csv-file-into-posgresql-table/
 
-PART 2 
+--    3)create table 
 ```
 select count(*) from all_sessions
 ```
@@ -114,10 +109,12 @@ RESTART IDENTITY;
 select * from sales_report
 ```
 
-
+### Part 2: Create database and load the tables Understand what we are trying to solve
+### Part 3: - Clean and transform data and apply QA process to validate data transformation
+### Part 4:- Provide possible answers to the questions and apply QA process to validate
 ## Results
 - The data in the ecommerce database helped me understand a part of the flow of this ecommerce website.
-- This analysis further helped me in answering the questions required to cpltete this project
+- This analysis further helped me in answering the questions required to complete this project
 
 ## Challenges 
 (discuss challenges you faced in the project)
@@ -126,10 +123,11 @@ select * from sales_report
 - 
 
 ## Future Goals
-(what would you do if you had more time?)
+
 -1. Analyse the alalytics table a bit more in details and come up with 
       -compute the percentage of visitors to the site that actually makes a purchase
       -find each unique product viewed by each visitor
       -work on the all_sessions table and clean it up a bit more to display category and productname values
       -deep dive a bit more to understan the data in other tables like sales_report and sales_by_sku
       - validate the solution for the  5 questions a bit more
+      

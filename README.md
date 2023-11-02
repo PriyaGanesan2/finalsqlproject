@@ -7,13 +7,13 @@
 ## Process
 ### Part 1: Create database and load the table
 
--- 1. CLONE GIT REPO TO LOCAL MACHINE.
---     CODE --> GET HTTS LINK AND COPY THE LINK
--- 	GO TO THE FOLDER IN LOCAL MACHINE WHERE YOU WANT TO CLONE THIS FOLDER 
--- 	git clone <HTTPS LINK FROM PROVIOUS STEP>
--- 	https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
--- 2. DOWNLOAD THE CSV FILES AND CRAETE DB ECOMMERCE
---     1. COPY THE HEADER COLOUM OF THE CSV
+#### CLONE GIT REPO TO LOCAL MACHINE.
+--    CODE --> GET HTTS LINK AND COPY THE LINK
+-- 	  GO TO THE FOLDER IN LOCAL MACHINE WHERE YOU WANT TO CLONE THIS FOLDER 
+-- 	  git clone <HTTPS LINK FROM PROVIOUS STEP>
+-- 	  https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
+####  DOWNLOAD THE CSV FILES AND CRAETE DB ECOMMERCE
+--1. COPY THE HEADER COLOUM OF THE CSV
 -- 	   2. CONVERT TO TEXT
 -- 	   3. CREATE TEH SQL QUERY TO CRAETE TABLE
 -- 	   4. KEEP ALL FIELDS AS VARCHAR
